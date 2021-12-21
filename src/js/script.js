@@ -8,6 +8,8 @@ const carousel = new Carousel('#carousel', {
             "https://picsum.photos/800/500?random=3",
             "https://picsum.photos/800/500?random=4",
             "https://picsum.photos/800/500?random=5",
+            "https://picsum.photos/800/500?random=6",
+            "https://picsum.photos/800/500?random=7",
         ],
     duration: '1.5s',       // default: '1.5s'
     effect: 'ease',         // default: 'ease'
