@@ -89,3 +89,5 @@ export class Carousel {
         this.slides[currentSlide].setAttribute('data-current', '1')
     }
 }
+
+// Сделать внешнюю проверку вводимых значений, параметров!

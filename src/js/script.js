@@ -1,7 +1,7 @@
 import { Carousel } from "./components/Carousel/Carousel.js";
 
 const carousel = new Carousel('#carousel', {
-    title: null,                                            // null - default, "" - for nothing
+    title: null,            // null - default, "" - for nothing
     slides: [
             "https://picsum.photos/800/500?random=1",
             "https://picsum.photos/800/500?random=2",
@@ -9,9 +9,9 @@ const carousel = new Carousel('#carousel', {
             "https://picsum.photos/800/500?random=4",
             "https://picsum.photos/800/500?random=5",
         ],
-    duration: '1.5s',
-    effect: 'ease',
-    delay: '1s',
+    duration: '1.5s',       // default: '1.5s'
+    effect: 'ease',         // default: 'ease'
+    delay: '1s',            // default: '1s'
 })
 
 // "https://picsum.photos/750/450"
