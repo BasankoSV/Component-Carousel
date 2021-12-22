@@ -46,7 +46,6 @@ export class Carousel {
     #setup() {
         this.slides = document.querySelectorAll('.carousel-item')
         this.carouselFooter = document.querySelector('.carousel-footer')
-        console.log(this.carouselFooter);
         const arrows = document.querySelectorAll('[data-arrow]')
         for (let i = 0; i < arrows.length; i++) {
             arrows[i].addEventListener('click', this.changeSlides.bind(this))
@@ -59,6 +58,7 @@ export class Carousel {
         setTimeout(() => { btn.removeAttribute('disabled') }, 2000);
         
         const {duration, effect, delay} = this.options
+        console.log('Duration:' , Number(duration.replace(/\D+/g,'')));
         const arrowDirection = event.currentTarget.dataset.arrow 
         let currentSlide
         for (let i = 0; i < this.slides.length; i++) {
@@ -66,8 +66,6 @@ export class Carousel {
         }
         this.slides[currentSlide].removeAttribute('data-current')
         let prevSlide = currentSlide
-
-        // this.carouselFooter.insertAdjacentHTML('beforeend', ` Current slide: ${currentSlide + 1}`)
 
         switch (arrowDirection) {
             case 'left':

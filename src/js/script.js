@@ -11,9 +11,9 @@ const carousel = new Carousel('#carousel', {
             "https://picsum.photos/800/500?random=6",
             "https://picsum.photos/800/500?random=7",
         ],
-    duration: '1.5s',       // default: '1.5s'
+    duration: '5ms',       // default: '1.5s' - duration = setTimeout
     effect: 'ease',         // default: 'ease'
-    delay: '1s',            // default: '1s'
+    delay: '0.5s',            // default: '1s'
 })
 
 // "https://picsum.photos/750/450"
