@@ -53,12 +53,18 @@ export class Carousel {
     }
 
     changeSlides(event) {
+        const {duration, effect, delay} = this.options
+        // const setTimeoutDelay = Number(duration.replace(/\D+/g,'')) * 1_000
+        const setTimeoutDuration = parseFloat(duration) * 1_000
+        const setTimeoutDelay = parseFloat(delay) * 1_000
+        // console.log(setTimeoutDuration, setTimeoutDelay, delay);
+        // console.log('setTimeoutDelay: ', setTimeoutDelay, Number(duration.replace(/\D+/g,'')));
+        // console.log('parseFloat: ', parseFloat(duration));
+
         const btn = event.currentTarget
         btn.setAttribute('disabled', 'disabled')
-        setTimeout(() => { btn.removeAttribute('disabled') }, 2000);
+        setTimeout(() => { btn.removeAttribute('disabled') }, setTimeoutDuration + setTimeoutDelay); //2000
         
-        const {duration, effect, delay} = this.options
-        console.log('Duration:' , Number(duration.replace(/\D+/g,'')));
         const arrowDirection = event.currentTarget.dataset.arrow 
         let currentSlide
         for (let i = 0; i < this.slides.length; i++) {
@@ -83,7 +89,7 @@ export class Carousel {
         }
 
         setTimeout(() => { this.slides[currentSlide].style = `transform: translate(0, 0); transition: transform ${duration} ${effect} ${delay};` }, 1)
-        setTimeout(() => { this.slides[prevSlide].style = 'transform: translate(0, 0); opacity: 0;' }, 2000)
+        setTimeout(() => { this.slides[prevSlide].style = 'transform: translate(0, 0); opacity: 0;' }, setTimeoutDuration + setTimeoutDelay)
         this.slides[currentSlide].setAttribute('data-current', '1')
     }
 }
