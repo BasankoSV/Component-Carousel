@@ -1,5 +1,5 @@
 const getTemplate = (slides = [], title) => {
-    let numberOfSlides = slides.length
+    const numberOfSlides = slides.length
     let slideNumber = 0 
     let items = ''
     for (let i = 0; i < slides.length; i++) {
@@ -21,7 +21,7 @@ const getTemplate = (slides = [], title) => {
             <img src="img/arrow.svg" alt="arrow-left">
         </button>
         <div class="carousel-items">
-                ${items}    
+            ${items}    
         </div>
         <button class="btn-right" data-arrow="right">
             <img src="img/arrow.svg" alt="arrow-right">
@@ -35,15 +35,15 @@ export class Carousel {
         this.$el = document.querySelector(selector)
         this.options = options
         this.#render()
-        this.#setup()
-    } // constructor
+        this.#main()
+    }
 
     #render() {
         const {slides, title} = this.options
         this.$el.innerHTML = getTemplate(slides, title)
     }
 
-    #setup() {
+    #main() {
         this.slides = document.querySelectorAll('.carousel-item')
         this.carouselFooter = document.querySelector('.carousel-footer')
         const arrows = document.querySelectorAll('[data-arrow]')
@@ -54,16 +54,12 @@ export class Carousel {
 
     changeSlides(event) {
         const {duration, effect, delay} = this.options
-        // const setTimeoutDelay = Number(duration.replace(/\D+/g,'')) * 1_000
         const setTimeoutDuration = parseFloat(duration) * 1_000
         const setTimeoutDelay = parseFloat(delay) * 1_000
-        // console.log(setTimeoutDuration, setTimeoutDelay, delay);
-        // console.log('setTimeoutDelay: ', setTimeoutDelay, Number(duration.replace(/\D+/g,'')));
-        // console.log('parseFloat: ', parseFloat(duration));
 
         const btn = event.currentTarget
         btn.setAttribute('disabled', 'disabled')
-        setTimeout(() => { btn.removeAttribute('disabled') }, setTimeoutDuration + setTimeoutDelay); //2000
+        setTimeout(() => { btn.removeAttribute('disabled') }, setTimeoutDuration + setTimeoutDelay)
         
         const arrowDirection = event.currentTarget.dataset.arrow 
         let currentSlide

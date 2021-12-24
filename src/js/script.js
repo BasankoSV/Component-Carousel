@@ -13,7 +13,7 @@ const carousel = new Carousel('#carousel', {
         ],
     duration: '1.5s',       // default: '1.5s' - duration = setTimeout
     effect: 'ease',         // default: 'ease'
-    delay: '0s',            // default: '1s'
+    delay: '0s',            // default: '1s' нужна проверка на '' NaN
 })
 
 // "https://picsum.photos/750/450"
